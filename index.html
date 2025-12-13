@@ -5,891 +5,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Damodar Bhawsar | Data Scientist</title>
+    <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --bg-color: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --card-hover: rgba(255, 255, 255, 0.95);
-            --accent: #6c5ce7;
-            /* Soft Purple */
-            --accent-glow: rgba(108, 92, 231, 0.3);
-            --secondary: #00cec9;
-            /* Teal */
-            --text-main: #2d3436;
-            --text-muted: #636e72;
-            --font-main: 'Outfit', sans-serif;
-            --font-code: 'Fira Code', monospace;
-            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        --card-hover: rgba(255, 255, 255, 0.95);
-        --accent: #6c5ce7;
-        /* Soft Purple */
-        --accent-glow: rgba(108, 92, 231, 0.3);
-        --secondary: #00cec9;
-        /* Teal */
-        --text-main: #2d3436;
-        --text-muted: #636e72;
-        --font-main: 'Outfit',
-        sans-serif;
-        --font-code: 'Fira Code',
-        monospace;
-        --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- AMBIENT BACKGROUND --- */
-        .bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        #bg-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            animation: float 10s infinite alternate cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-
-        .blob-1 {
-            width: 60vw;
-            height: 60vw;
-            background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, transparent 70%);
-            top: -20%;
-            left: -10%;
-        }
-
-        .blob-2 {
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(0, 206, 201, 0.15) 0%, transparent 70%);
-            bottom: -20%;
-            right: -10%;
-            animation-delay: -5s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            100% {
-                transform: translate(30px, 50px);
-            }
-        }
-
-        /* --- NAVIGATION --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 8%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-main);
-            opacity: 0.8;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--secondary));
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* --- TYPOGRAPHY & TITLES --- */
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 80px;
-            background: linear-gradient(120deg, var(--text-main) 0%, var(--text-muted) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            margin: 20px auto 0;
-            border-radius: 2px;
-            box-shadow: 0 0 20px var(--accent);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 10%;
-            position: relative;
-        }
-
-        .hero h3 {
-            color: var(--accent);
-            font-family: var(--font-code);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, var(--text-main), #636e72);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h2 {
-            font-size: 3.5rem;
-            color: var(--text-muted);
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        .typewriter {
-            background: linear-gradient(90deg, var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* New Button Style */
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            margin-top: 30px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-family: var(--font-code);
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            transition: color 0.4s;
-            width: fit-content;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .btn:hover {
-            color: #fff;
-            font-weight: bold;
-            box-shadow: 0 10px 20px var(--accent-glow);
-        }
-
-        .btn:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* --- ABOUT SECTION --- */
-        section {
-            padding: 120px 10%;
-        }
-
-        .about-container {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        .about-text strong {
-            color: var(--accent);
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .skill-tag {
-            background: rgba(108, 92, 231, 0.05);
-            color: var(--text-main);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(108, 92, 231, 0.1);
-            transition: 0.3s;
-            cursor: default;
-        }
-
-        .skill-tag:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .image-wrapper {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            filter: grayscale(100%);
-            transition: 0.5s;
-            position: relative;
-            z-index: 2;
-        }
-
-        .image-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -10px;
-            border-radius: 25px;
-            background: linear-gradient(45deg, var(--accent), var(--secondary));
-            z-index: 1;
-            opacity: 0.6;
-            filter: blur(10px);
-            animation: spin 5s linear infinite;
-        }
-
-        .image-wrapper:hover img {
-            filter: none;
-            transform: scale(1.02);
-        }
-
-        @keyframes spin {
-            0% {
-                opacity: 0.5;
-            }
-
-            50% {
-                opacity: 0.8;
-            }
-
-            100% {
-                opacity: 0.5;
-            }
-        }
-
-        /* --- EXPERIENCE (GLOWING PATH) --- */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            border-left: 2px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .timeline-item {
-            padding-left: 40px;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--bg-color);
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 15px var(--accent);
-            transition: 0.3s;
-        }
-
-        .timeline-item:hover::before {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-
-        .role {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .company {
-            color: var(--accent);
-            font-family: var(--font-code);
-            font-size: 1rem;
-            margin-top: 5px;
-            display: inline-block;
-        }
-
-        .date {
-            font-family: var(--font-code);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            float: right;
-            margin-top: 8px;
-        }
-
-        .desc {
-            margin-top: 15px;
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* --- PROJECTS (GLASS CARDS) --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 0;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: var(--shadow-light);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .project-content {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: 0.4s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            background: var(--card-hover);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .top-icons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .folder i {
-            font-size: 2.5rem;
-            color: var(--accent);
-        }
-
-        .links a {
-            font-size: 1.4rem;
-            color: var(--text-muted);
-            transition: 0.3s;
-        }
-
-        .links a:hover {
-            color: #fff;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 15px;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .tech-stack {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            font-family: var(--font-code);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* --- PUBLICATIONS --- */
-        .pub-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
-
-        .pub-card:hover {
-            border-color: var(--secondary);
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .pub-type {
-            font-family: var(--font-code);
-            color: var(--secondary);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .pub-head {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        /* --- CONTACT --- */
-        .contact-box {
-            background: #ffffff;
-            padding: 60px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .contact-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-box p {
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .socials a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            transition: 0.3s;
-            background: #fff;
-        }
-
-        .socials a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-5px);
-        }
-
-        /* --- ANIMATIONS --- */
-        .hidden {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stagger-1 {
-            transition-delay: 100ms;
-        }
-
-        .stagger-2 {
-            transition-delay: 200ms;
-        }
-
-        .stagger-3 {
-            transition-delay: 300ms;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .date {
-                float: none;
-                display: block;
-                margin-bottom: 5px;
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="bg-container">
-        <canvas id="bg-canvas"></canvas>
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
 
+    <!-- Navigation -->
     <nav>
         <div class="logo">DB<span>.</span></div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
             <a href="#projects">Work</a>
+            <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <h3 class="hidden">Hi, my name is</h3>
-        <h1 class="hidden stagger-1">Damodar Bhawsar.</h1>
-        <h2 class="hidden stagger-2">I build intelligent systems.</h2>
-        <p class="hidden stagger-3"
-            style="max-width: 500px; color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
-            Data Scientist specializing in <span class="typewriter" id="typewriter"></span>
+        <h1 class="hidden" style="transition-delay: 100ms;">Damodar Bhawsar.</h1>
+        <h2 class="hidden" style="transition-delay: 200ms;">I build intelligent systems.</h2>
+        <p class="hidden"
+            style="max-width: 600px; color: var(--text-muted); font-size: 1.2rem; margin-bottom: 30px; transition-delay: 300ms;">
+            I am a <span class="typewriter"><span id="typewriter-text"></span></span>
         </p>
-        <div class="hidden stagger-3">
+        <div class="hidden" style="transition-delay: 400ms;">
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about">
         <div class="section-title hidden">About Me</div>
-        <div class="about-container">
-            <div class="about-text hidden stagger-1">
-                <p>
-                    Hello! I'm Damodar, a passionate <strong>Junior Data Scientist</strong> based in Indore, India. I
-                    enjoy creating things that live on the internet, whether that's analyzing complex datasets, building
-                    LLM agents, or automating workflows.
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; align-items: center;">
+            <div class="hidden"
+                style="flex: 1; min-width: 300px; text-align: justify; color: var(--text-muted); font-size: 1.1rem;">
+                <p style="margin-bottom: 20px;">
+                    Hello! I'm Damodar, a passionate <strong>Data Scientist</strong> based in Indore, India.
+                    I enjoy creating things that live on the internet, whether that's analyzing complex datasets,
+                    building LLM agents, or automating workflows.
                 </p>
                 <p>
-                    My journey started with a curiosity for how machines learn, which led me to publish research on AI
-                    in Healthcare and work on cutting-edge Agentic AI systems. I graduated from <strong>Prestige
-                        Institute</strong> (RGPV) with a B.Tech in CSE.
+                    My journey started with a curiosity for how machines learn, which led me to publish research on
+                    AI in Healthcare and work on cutting-edge Agentic AI systems.
                 </p>
-                <div class="skills-grid">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">LLMs & GenAI</span>
-                    <span class="skill-tag">LangChain</span>
-                    <span class="skill-tag">OpenCV</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">N8N</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">PyTorch</span>
-                </div>
             </div>
-
-            <div class="image-wrapper hidden stagger-2">
-                <img src="profile.jpg" alt="Damodar Bhawsar"
-                    onerror="this.src='https://via.placeholder.com/300x300/161622/ffffff?text=User'">
+            <div class="hidden" style="text-align: center;">
+                <img src="profile.jpg" alt="Profile"
+                    style="width: 300px; height: 350px; border-radius: 20px; border: 2px solid var(--accent); object-fit: cover; box-shadow: 20px 20px 0 var(--card-border);">
             </div>
         </div>
     </section>
 
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-title hidden">Education</div>
+        <div class="timeline">
+            <div class="timeline-item hidden">
+                <div class="role">B.Tech in Computer Science & Engineering</div>
+                <div class="company">@ Prestige Institute of Engineering Management and Research</div>
+                <div class="date">Graduated</div>
+                <p class="desc">Focused on Data Science, Machine Learning, and Artificial Intelligence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
     <section id="experience">
         <div class="section-title hidden">Where I've Worked</div>
         <div class="timeline">
-            <div class="timeline-item hidden stagger-1">
+            <!-- Soothsayer Junior DS -->
+            <div class="timeline-item hidden">
                 <div class="role">Junior Data Scientist</div>
                 <div class="company">@ Soothsayer Analytics</div>
-                <div class="date">Feb 2025 - Present</div>
-                <p class="desc">
-                    Building and fine-tuning LLM models for automation tasks. Analyzing NLP datasets and improving
-                    accuracy through advanced data cleaning and model tuning.
-                </p>
+                <div class="date">Nov 2025 - Present</div>
+                <p class="desc">Working on advanced analytics and deploying AI solutions.</p>
             </div>
-            <div class="timeline-item hidden stagger-2">
-                <div class="role">Python Intern</div>
+            <!-- Soothsayer Intern -->
+            <div class="timeline-item hidden">
+                <div class="role">Data Science Intern</div>
+                <div class="company">@ Soothsayer Analytics</div>
+                <div class="date">Feb 2025 - Nov 2025</div>
+                <p class="desc">Gained hands-on experience with LLMs, data processing pipelines, and predictive
+                    modeling.</p>
+            </div>
+            <!-- Avnipride Intern -->
+            <div class="timeline-item hidden">
+                <div class="role">Python Developer Intern</div>
                 <div class="company">@ Avnipride Technology</div>
-                <div class="date">Jun 2024 - Aug 2024</div>
-                <p class="desc">
-                    Collaborated on API development and system performance improvements. Resolved critical code
-                    reliability issues using Python frameworks.
-                </p>
-            </div>
-            <div class="timeline-item hidden stagger-3">
-                <div class="role">Team Coordinator</div>
-                <div class="company">@ Confederation of Indian Industry</div>
-                <div class="date">Jan 2023</div>
-                <p class="desc">
-                    Coordinated a team for the G20 Summit, facilitating interactions with international delegates.
-                </p>
+                <div class="date">Aug 2024 - Oct 2024</div>
+                <p class="desc">Developed Python scripts for automation and backend services.</p>
             </div>
         </div>
     </section>
 
+    <!-- Tech/Skills Section (with Photos) -->
+    <section id="skills">
+        <div class="section-title hidden">Technologies</div>
+        <div class="tech-grid hidden">
+            <!-- Gen AI -->
+            <div class="tech-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/12222/12222588.png" class="tech-icon" alt="Gen AI"
+                    style="filter: invert(1);">
+                <span class="tech-name">Gen AI</span>
+            </div>
+            <!-- Agent AI -->
+            <div class="tech-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/8654/8654198.png" class="tech-icon" alt="Agent AI"
+                    style="filter: invert(1);">
+                <span class="tech-name">Agent AI</span>
+            </div>
+            <!-- Python -->
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    class="tech-icon" alt="Python">
+                <span class="tech-name">Python</span>
+            </div>
+            <!-- TensorFlow -->
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                    class="tech-icon" alt="TensorFlow">
+                <span class="tech-name">TensorFlow</span>
+            </div>
+            <!-- PyTorch -->
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"
+                    class="tech-icon" alt="PyTorch">
+                <span class="tech-name">PyTorch</span>
+            </div>
+            <!-- Pandas -->
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                    class="tech-icon" alt="Pandas">
+                <span class="tech-name">Pandas</span>
+            </div>
+            <!-- SQL -->
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="tech-icon"
+                    alt="SQL">
+                <span class="tech-name">SQL</span>
+            </div>
+            <!-- Docker -->
+            <div class="tech-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                    class="tech-icon" alt="Docker">
+                <span class="tech-name">Docker</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="section-title hidden">Publications & Writing</div>
+        <div class="project-grid" style="justify-content: center;">
+            <!-- Medium -->
+            <a href="https://medium.com/@damodar.7974" target="_blank" style="text-decoration: none;">
+                <div class="project-card hidden"
+                    style="height: auto; align-items: center; text-align: center; padding: 30px;">
+                    <i class="fab fa-medium" style="font-size: 3rem; color: var(--text-main); margin-bottom: 20px;"></i>
+                    <h3 class="project-title">Medium Articles</h3>
+                    <p class="project-desc">Read my latest thoughts on AI, Data Science, and Tech.</p>
+                </div>
+            </a>
+            <!-- Research Paper -->
+            <a href="https://drive.google.com/file/d/1JrupO8VetxIlYwGXfB-Mb8clJaU10vJx/view?usp=sharing" target="_blank"
+                style="text-decoration: none;">
+                <div class="project-card hidden"
+                    style="height: auto; align-items: center; text-align: center; padding: 30px;">
+                    <i class="fas fa-scroll" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3 class="project-title">Research Paper</h3>
+                    <p class="project-desc">Study on Potential of AI in Healthcare Sector (Google Drive).</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
     <section id="projects">
-        <div class="section-title hidden">Some Things I've Built</div>
+        <div class="section-title hidden">Featured Projects</div>
         <div class="project-grid">
 
-            <div class="project-card hidden stagger-1" data-tilt>
-                <img src="bill_extraction.png" alt="Bill Extraction" class="project-img">
+            <!-- Project 1 -->
+            <div class="project-card hidden">
+                <img src="bill_extraction.png" class="project-img" alt="Bill Extraction"
+                    onerror="this.src='https://via.placeholder.com/600x400/101010/ffffff?text=Bill+Extraction'">
                 <div class="project-content">
-                    <div>
-                        <div class="top-icons">
-                            <div class="folder"><i class="far fa-folder"></i></div>
-                            <div class="links">
-                                <a href="https://github.com/damodar04/Bill_Handling" target="_blank"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Automated Bill Extraction</h3>
-                        <p class="project-desc">
-                            A Streamlit-based application automating expense bill processing. Uses Google OCR API and
-                            LLMs to extract key details, reducing manual workload by 70%.
-                        </p>
-                    </div>
+                    <h3 class="project-title">Automated Bill Extraction</h3>
+                    <p class="project-desc">Automated expense bill processing using Google OCR API and LLMs. Reduced
+                        manual workload by 70%.</p>
                     <div class="tech-stack">
-                        <span>Python</span> <span>OCR</span> <span>LLM</span> <span>Streamlit</span>
+                        <span>Python</span><span>OCR</span><span>LLM</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card hidden stagger-2" data-tilt>
-                <img src="voice_agent.png" alt="Voice Agent" class="project-img">
+            <!-- Project 2 -->
+            <div class="project-card hidden">
+                <img src="voice_agent.png" class="project-img" alt="Voice Agent"
+                    onerror="this.src='https://via.placeholder.com/600x400/101010/ffffff?text=Voice+Agent'">
                 <div class="project-content">
-                    <div>
-                        <div class="top-icons">
-                            <div class="folder"><i class="far fa-folder"></i></div>
-                            <div class="links">
-                                <a href="https://github.com/damodar04/elevenlab_sms_call_handling-" target="_blank"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Voice Call Agent</h3>
-                        <p class="project-desc">
-                            Real-time call management system integrating Twilio Voice API and ElevenLabs TTS/STT.
-                            Achieved a 75% reduction in manual call-handling time.
-                        </p>
-                    </div>
+                    <h3 class="project-title">Voice Call Agent</h3>
+                    <p class="project-desc">Real-time call management system integrating Twilio Voice API and ElevenLabs
+                        to answer calls intelligently.</p>
                     <div class="tech-stack">
-                        <span>ElevenLabs</span> <span>Twilio</span> <span>FastAPI</span> <span>SQLite</span>
+                        <span>ElevenLabs</span><span>Twilio</span><span>FastAPI</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card hidden stagger-3" data-tilt>
-                <img src="whatsapp_agent.png" alt="WhatsApp Agent" class="project-img">
+            <!-- Project 3 -->
+            <div class="project-card hidden">
+                <img src="whatsapp_agent.png" class="project-img" alt="WhatsApp Agent"
+                    onerror="this.src='https://via.placeholder.com/600x400/101010/ffffff?text=WhatsApp+Agent'">
                 <div class="project-content">
-                    <div>
-                        <div class="top-icons">
-                            <div class="folder"><i class="far fa-folder"></i></div>
-                            <div class="links">
-                                <a href="https://github.com/damodar04/whatsapp_agent" target="_blank"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">WhatsApp Automation Agent</h3>
-                        <p class="project-desc">
-                            Integrated LLM-based workflows using LangChain and OpenAI to automate message understanding.
-                            Features include document extraction and summarization.
-                        </p>
-                    </div>
+                    <h3 class="project-title">WhatsApp Automation</h3>
+                    <p class="project-desc">LLM-based workflow to handle WhatsApp messages automatically, parse
+                        documents, and summarize content.</p>
                     <div class="tech-stack">
-                        <span>LangChain</span> <span>OpenAI</span> <span>N8N</span> <span>WhatsApp API</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card hidden stagger-1" data-tilt>
-                <img src="https://via.placeholder.com/600x400/f0f2f5/2d3436?text=Geography+Crisis+Analysis"
-                    alt="Geography Crisis Analysis" class="project-img">
-                <div class="project-content">
-                    <div>
-                        <div class="top-icons">
-                            <div class="folder"><i class="far fa-folder"></i></div>
-                            <div class="links">
-                                <a href="https://github.com/damodar04/geography_crisis_analysis-" target="_blank"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Geography Crisis Analysis</h3>
-                        <p class="project-desc">
-                            A data analysis project focused on monitoring and analyzing geopolitical events and crises
-                            using data science techniques to derive actionable insights.
-                        </p>
-                    </div>
-                    <div class="tech-stack">
-                        <span>Data Analysis</span> <span>Visualization</span> <span>Pandas</span>
+                        <span>LangChain</span><span>OpenAI</span><span>N8N</span>
                     </div>
                 </div>
             </div>
@@ -897,207 +242,25 @@
         </div>
     </section>
 
-    <section id="publications">
-        <div class="section-title hidden">Research & Writing</div>
-
-        <a href="https://medium.com/@damodar.7974/does-fine-tuning-matter-a-practical-study-with-llama-t5-and-distilbert-d5d7ac09fde2"
-            target="_blank" class="hidden stagger-1">
-            <div class="pub-card">
-                <div class="pub-type">MEDIUM ARTICLE</div>
-                <div class="pub-head">Does Fine-Tuning Matter? A Practical Study with LLaMA, T5, and DistilBERT</div>
-                <p class="desc">A comparative study on how fine-tuning affects accuracy and performance across multiple
-                    transformer models.</p>
-            </div>
-        </a>
-
-        <a href="https://www.linkedin.com/redir/redirect/?url=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1JrupO8VetxIlYwGXfB-Mb8clJaU10vJx%2Fview%3Fusp%3Dsharing&urlhash=1QwM&isSdui=true&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Ba7Qm8g4LS7uTa8qwwmyfig%3D%3D"
-            target="_blank" class="hidden stagger-2">
-            <div class="pub-card">
-                <div class="pub-type">INTERNATIONAL JOURNAL</div>
-                <div class="pub-head">A Study on Potential of AI in Healthcare Sector</div>
-                <p class="desc">Published in Metszet Journal. An in-depth analysis of AI technologies impacting the
-                    healthcare industry.</p>
-            </div>
-        </a>
-    </section>
-
+    <!-- Contact Section -->
     <section id="contact">
         <div class="contact-box hidden">
-            <div style="color: var(--accent); font-family: var(--font-code); margin-bottom: 20px;">What's Next?</div>
-            <h2>Get In Touch</h2>
-            <p>
-                I am currently looking for new opportunities to contribute to AI and Data Science projects. Whether you
-                have a question or just want to say hi, I'll try my best to get back to you!
-            </p>
-            <div class="socials">
-                <a href="https://www.linkedin.com/in/damodar-bhawsar" target="_blank"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/damodar04" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:damodar.7974@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+            <div class="section-title">Get In Touch</div>
+            <p>I'm currently looking for new opportunities. Whether you have a question or just want to say hi, feel
+                free to drop a message!</p>
             <a href="mailto:damodar.7974@gmail.com" class="btn">Say Hello</a>
         </div>
     </section>
 
-    <footer>
-        <p>Designed & Built by Damodar Bhawsar © 2025</p>
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9rem;">
+        <p>Built with ❤️ by Damodar Bhawsar</p>
     </footer>
 
-    <script>
-        // --- TYPEWRITER EFFECT ---
-        const textElement = document.getElementById("typewriter");
-        const texts = ["Generative AI", "Machine Learning", "NLP", "Agentic AI"];
-        let count = 0;
-        let index = 0;
-        let currentText = "";
-        let letter = "";
+    <!-- Scripts -->
+    <!-- Important: Using module type for Three.js import -->
+    <script type="module" src="script.js"></script>
 
-        (function type() {
-            if (count === texts.length) { count = 0; }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
-            textElement.textContent = letter;
-
-            if (letter.length === currentText.length) {
-                count++; index = 0; setTimeout(type, 2000);
-            } else { setTimeout(type, 100); }
-        })();
-
-        // --- SCROLL ANIMATION OBSERVER ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-
-        // --- 3D TILT EFFECT (Vanilla JS) ---
-        const cards = document.querySelectorAll('[data-tilt]');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0) rotateY(0)`;
-            });
-        });
-
-        // --- PARTICLE NETWORK ANIMATION ---
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let mouse = { x: null, y: null, radius: (canvas.height / 80) * (canvas.width / 80) };
-
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x; this.y = y;
-                this.directionX = directionX; this.directionY = directionY;
-                this.size = size; this.color = color;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-            update() {
-                if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; }
-                if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
-
-                // Check collision detection - mouse position / particle position
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < mouse.radius + this.size) {
-                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) { this.x += 10; }
-                    if (mouse.x > this.x && this.x > this.size * 10) { this.x -= 10; }
-                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) { this.y += 10; }
-                    if (mouse.y > this.y && this.y > this.size * 10) { this.y -= 10; }
-                }
-                this.x += this.directionX;
-                this.y += this.directionY;
-                this.draw();
-            }
-        }
-
-        function init() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 3) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * 1) - 0.5;
-                let directionY = (Math.random() * 1) - 0.5;
-                let color = 'rgba(45, 52, 54, 0.1)'; // Dark gray, low opacity
-
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
-
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-                        + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-                        opacityValue = 1 - (distance / 20000);
-                        ctx.strokeStyle = 'rgba(45, 52, 54,' + opacityValue * 0.15 + ')'; // Line color
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-            }
-            connect();
-        }
-
-        window.addEventListener('resize', () => {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            mouse.radius = ((canvas.height / 80) * (canvas.height / 80));
-            init();
-        });
-
-        window.addEventListener('mouseout', () => {
-            mouse.x = undefined;
-            mouse.y = undefined;
-        });
-
-        init();
-        animate();
-    </script>
 </body>
 
 </html>
