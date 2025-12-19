@@ -16,97 +16,101 @@
 
 <body>
 
-    <!-- 3D Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
+    <!-- Bokeh Background -->
+    <div class="background-wrapper">
+        <div class="blob"></div>
+        <div class="blob-2"></div>
+    </div>
 
     <!-- Navigation -->
     <nav>
         <div class="logo">DB<span>.</span></div>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
+            <a href="#about">Qualifications</a>
             <a href="#projects">Work</a>
-            <a href="#publications">Publications</a>
+            <a href="#publications">Research & Writing</a>
             <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-btns">
+            <a href="Bhawsar_Resume.pdf" target="_blank" class="nav-btn"><i class="fas fa-file-pdf"></i> Resume</a>
+            <a href="Bhawsar_Resume.pdf" target="_blank" class="nav-btn cv"><i class="fas fa-file-alt"></i> CV</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h3 class="hidden">Hi, my name is</h3>
-        <h1 class="hidden" style="transition-delay: 100ms;">Damodar Bhawsar.</h1>
-        <h2 class="hidden" style="transition-delay: 200ms;">I build intelligent systems.</h2>
-        <p class="hidden"
-            style="max-width: 600px; color: var(--text-muted); font-size: 1.2rem; margin-bottom: 30px; transition-delay: 300ms;">
-            I am a <span class="typewriter"><span id="typewriter-text"></span></span>
-        </p>
-        <div class="hidden" style="transition-delay: 400ms;">
-            <a href="#projects" class="btn">View My Work</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h3 class="hidden">HI, MY NAME IS</h3>
+                <h1 class="hidden">Damodar Bhawsar.</h1>
+                <h2 class="hidden">I build intelligent systems.</h2>
+                <p class="hidden intro-text">
+                    Hello! I'm Damodar, a passionate <strong>Data Scientist</strong> dedicated to creating
+                    scalable, data-driven solutions and intelligent systems that make an impact.
+                </p>
+                <div class="hidden" style="transition-delay: 200ms;">
+                    <a href="#projects" class="btn">View My Work</a>
+                </div>
+            </div>
+            <div class="hero-image hidden">
+                <div class="img-wrapper">
+                    <img src="profile.jpg" alt="Damodar Bhawsar">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="section-title hidden">About Me</div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; align-items: center;">
-            <div class="hidden"
-                style="flex: 1; min-width: 300px; text-align: justify; color: var(--text-muted); font-size: 1.1rem;">
-                <p style="margin-bottom: 20px;">
-                    Hello! I'm Damodar, a passionate <strong>Data Scientist</strong> based in Indore, India.
-                    I enjoy creating things that live on the internet, whether that's analyzing complex datasets,
-                    building LLM agents, or automating workflows.
-                </p>
-                <p>
-                    My journey started with a curiosity for how machines learn, which led me to publish research on
-                    AI in Healthcare and work on cutting-edge Agentic AI systems.
-                </p>
-            </div>
-            <div class="hidden" style="text-align: center;">
-                <img src="profile.jpg" alt="Profile"
-                    style="width: 300px; height: 350px; border-radius: 20px; border: 2px solid var(--accent); object-fit: cover; box-shadow: 20px 20px 0 var(--card-border);">
-            </div>
+        <div class="about-container hidden">
+            <p>
+                Hello! I'm Damodar, a passionate <strong>Data Scientist</strong> based in Indore, India.
+                I enjoy creating things that live on the internet, whether that's analyzing complex datasets,
+                building LLM agents, or automating workflows.
+            </p>
+            <p>
+                My journey started with a curiosity for how machines learn, which led me to publish research on
+                AI in Healthcare and work on cutting-edge Agentic AI systems.
+            </p>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education">
-        <div class="section-title hidden">Education</div>
-        <div class="timeline">
-            <div class="timeline-item hidden">
-                <div class="role">B.Tech in Computer Science & Engineering</div>
-                <div class="company">@ Prestige Institute of Engineering Management and Research</div>
-                <div class="date">Graduated</div>
-                <p class="desc">Focused on Data Science, Machine Learning, and Artificial Intelligence.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Qualifications Section -->
+    <section id="qualifications">
+        <div class="section-title hidden">Qualifications</div>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-title hidden">Where I've Worked</div>
-        <div class="timeline">
-            <!-- Soothsayer Junior DS -->
-            <div class="timeline-item hidden">
-                <div class="role">Junior Data Scientist</div>
-                <div class="company">@ Soothsayer Analytics</div>
-                <div class="date">Nov 2025 - Present</div>
-                <p class="desc">Working on advanced analytics and deploying AI solutions.</p>
+        <div class="qual-grid">
+            <div class="qual-column">
+                <h3 class="qual-title hidden"><i class="fas fa-briefcase"></i> Experience</h3>
+                <div class="timeline">
+                    <!-- Soothsayer Junior DS -->
+                    <div class="timeline-item hidden">
+                        <div class="role">Junior Data Scientist</div>
+                        <div class="company">@ Soothsayer Analytics</div>
+                        <div class="date">Nov 2025 - Present</div>
+                        <p class="desc">Working on advanced analytics and deploying AI solutions.</p>
+                    </div>
+                    <!-- Soothsayer Intern -->
+                    <div class="timeline-item hidden">
+                        <div class="role">Data Science Intern</div>
+                        <div class="company">@ Soothsayer Analytics</div>
+                        <div class="date">Feb 2025 - Nov 2025</div>
+                        <p class="desc">Gained hands-on experience with LLMs and data pipelines.</p>
+                    </div>
+                </div>
             </div>
-            <!-- Soothsayer Intern -->
-            <div class="timeline-item hidden">
-                <div class="role">Data Science Intern</div>
-                <div class="company">@ Soothsayer Analytics</div>
-                <div class="date">Feb 2025 - Nov 2025</div>
-                <p class="desc">Gained hands-on experience with LLMs, data processing pipelines, and predictive
-                    modeling.</p>
-            </div>
-            <!-- Avnipride Intern -->
-            <div class="timeline-item hidden">
-                <div class="role">Python Developer Intern</div>
-                <div class="company">@ Avnipride Technology</div>
-                <div class="date">Aug 2024 - Oct 2024</div>
-                <p class="desc">Developed Python scripts for automation and backend services.</p>
+
+            <div class="qual-column">
+                <h3 class="qual-title hidden"><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item hidden">
+                        <div class="role">B.Tech in CSE</div>
+                        <div class="company">@ Prestige Institute</div>
+                        <div class="date">Graduated</div>
+                        <p class="desc">Focused on Data Science and Machine Learning.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
